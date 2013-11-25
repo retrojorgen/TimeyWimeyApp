@@ -1,0 +1,10 @@
+<div class="header">
+  <button class="help-button" ng-click="toggleHelp()"></button>
+  <h1 class="app-title">Time assistant</h1>
+  <button class="add-timer-button" ng-click="addTimer()"></button>
+</div>
+<div class="timer" ng-repeat="timer in timers">
+  <button class="button-timer" ng-click="toggleTimeCounter(timer)"></button>
+  <h2 class="time">{{timer.time.minutes}}:{{timer.time.seconds}}</h2>
+  <h2 class="name">{{timer.name}}</h2>
+</div>

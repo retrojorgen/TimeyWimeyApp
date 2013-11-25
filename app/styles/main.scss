@@ -1,0 +1,199 @@
+@import "compass/css3";
+@import "compass/css3/images";
+@import "compass/css3/font-face";
+@import "compass/css3/opacity";
+@import "animation";
+@import "compass/css3/transform";
+
+@keyframes playing {
+  from {
+    @include rotate(0deg);
+  }
+  to {
+    @include rotate(360deg);
+  }
+}
+
+/* Space out content a bit */
+html,
+body {
+  margin:0;
+  font-family: serif;
+  font-size: 1em;
+  color: rgba(0,0,0,0.6);
+  background: url(../images/app-background.jpg);
+  background-position: 50%;
+  background-size: 300%;
+  height: 100%;
+}
+
+div,
+button,
+span {
+  @include box-sizing(border-box);
+}
+
+@font-face {
+  font-family: RobotoThin;
+  src: url("fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: RobotoLight;
+  src: url("fonts/Roboto-Light.ttf");
+}
+
+$dancingRegular : DancingRegular;
+$dancingBold : DancingBold;
+$robotoThin : RobotoThin;
+$robotoLight : RobotoLight;
+
+
+
+$blue : #0073db;
+$darkBlue : #0031cf;
+$purple : #3900b5;
+$fuschia : #cf00b1;
+$red : #d00004;
+$orange : #c85800;
+$yellow : #d8af00;
+
+.add-timer-button {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+  background: url(../images/add-alarmclock.svg) transparent no-repeat;
+  background-size: 25px, 25px;
+  width: 25px;
+  height: 25px;
+  border: 0;
+}
+
+.header {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 4px;
+  background-color: rgba(255,255,255,0.5);
+
+  .app-title {
+    font-family: $robotoThin;
+    font-size: 16px;
+    padding: 2px;
+    margin:0;
+    display: block;
+    text-align: center;
+    color: rgba(0,0,0,1);
+  }
+}
+
+.timer {
+  padding: 4px;
+  display: block;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  background: rgba(255,255,255,0.2);
+
+  .name {
+    color: rgba(0,0,0,0.6);
+    display: block;
+    border-left: 42px solid transparent;
+    border-right: 42px solid transparent;
+    text-align: center;
+    margin:0;
+    padding-top:2px;
+    text-transform: uppercase;
+    font-family: $robotoLight;
+    font-size: 10px;
+  }
+  .time {
+    color: rgba(0,0,0,0.6);
+    display: block;
+    font-family: $robotoThin;
+    border-left: 42px solid transparent;
+    border-right: 42px solid transparent;
+    text-align: center;
+    margin:0;
+    font-size: 35px;
+    line-height: 0.8;
+  }
+  .button-timer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    color: white;
+    width: 40px;
+    border: 0;
+    font-weight: bold;
+    padding: 0;
+    background-color: transparent;
+    margin-left: 2px;
+
+    &:before {
+      content : " ";
+      background: url(../images/play-button.svg) no-repeat;
+      background-size: 48px 48px;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -20px;
+      margin-top: -28px;
+    }
+    &.pause {
+
+      &:before {
+        content : " ";
+        background: url(../images/pause-button.svg) no-repeat;
+        background-size: 48px 46px;
+        height: 50px;
+        width: 48px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -20px;
+        margin-top: -28px;
+      }
+      &:after {
+        content : " ";
+        background: url(../images/rotating-circle.svg) no-repeat;
+        background-size: 36px 36px;
+        height: 34px;
+        width: 36px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -15px;
+        margin-top: -23px;
+        @include animation(playing 1.5s infinite linear);
+      }
+    }
+  }
+  .button-delete {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    border: 0;
+    font-weight: bold;
+    padding: 0;
+    background-color: transparent;
+    &:before {
+      content : " ";
+      background: url(../images/delete-button.svg) no-repeat;
+      background-size: 38px 36px;
+      height: 36px;
+      width: 38px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -20px;
+      margin-top: -18px;
+    }
+  }
+
+}
+
+
