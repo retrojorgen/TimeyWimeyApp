@@ -1,24 +1,20 @@
-2013-11-23 14:53:51.161 facebookQuiz[5111:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-23 14:53:55.010 facebookQuiz[5111:80b] Resetting plugins due to page load.
-2013-11-23 14:53:55.378 facebookQuiz[5111:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html
-2013-11-23 18:31:35.236 facebookQuiz[5886:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-23 18:31:37.806 facebookQuiz[5886:80b] Resetting plugins due to page load.
-2013-11-23 18:31:38.645 facebookQuiz[5886:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html
-2013-11-24 14:04:05.812 facebookQuiz[9417:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-24 14:04:07.494 facebookQuiz[9417:80b] Resetting plugins due to page load.
-2013-11-24 14:04:08.129 facebookQuiz[9417:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html#/
-2013-11-24 14:12:23.852 facebookQuiz[10231:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-24 14:12:24.188 facebookQuiz[10231:80b] Resetting plugins due to page load.
-2013-11-24 14:12:24.851 facebookQuiz[10231:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html#/
-2013-11-24 14:18:54.097 facebookQuiz[11023:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-24 14:18:54.324 facebookQuiz[11023:80b] Resetting plugins due to page load.
-2013-11-24 14:18:54.645 facebookQuiz[11023:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html#/
-2013-11-24 15:01:49.362 facebookQuiz[12075:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-24 15:01:54.200 facebookQuiz[12075:80b] Resetting plugins due to page load.
-2013-11-24 15:01:55.647 facebookQuiz[12075:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html#/
-2013-11-24 15:20:28.879 facebookQuiz[12923:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-24 15:20:29.047 facebookQuiz[12923:80b] Resetting plugins due to page load.
-2013-11-24 15:20:29.755 facebookQuiz[12923:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html#/
-2013-11-24 15:28:34.406 facebookQuiz[13736:80b] Multi-tasking -> Device: YES, App: YES
-2013-11-24 15:28:34.664 facebookQuiz[13736:80b] Resetting plugins due to page load.
-2013-11-24 15:28:35.114 facebookQuiz[13736:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/8D127F30-0F84-4E6C-8188-7391E88A6E22/facebookQuiz.app/www/index.html#/
+2013-12-08 15:12:14.113 TimeyWimeyApp[15819:80b] Multi-tasking -> Device: YES, App: YES
+2013-12-08 15:12:14.440 TimeyWimeyApp[15819:80b] Unlimited access to network resources
+2013-12-08 15:12:18.485 TimeyWimeyApp[15819:80b] Resetting plugins due to page load.
+2013-12-08 15:12:19.428 TimeyWimeyApp[15819:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/4667C3CD-CE25-41A6-9BF4-F2CB19E89326/TimeyWimeyApp.app/www/index.html#/
+2013-12-08 15:50:00.520 TimeyWimeyApp[17589:80b] Multi-tasking -> Device: YES, App: YES
+2013-12-08 15:50:00.967 TimeyWimeyApp[17589:80b] Unlimited access to network resources
+2013-12-08 15:50:03.803 TimeyWimeyApp[17589:80b] Resetting plugins due to page load.
+2013-12-08 15:50:05.051 TimeyWimeyApp[17589:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/4667C3CD-CE25-41A6-9BF4-F2CB19E89326/TimeyWimeyApp.app/www/index.html#/
+2013-12-08 15:57:38.768 TimeyWimeyApp[18432:80b] Multi-tasking -> Device: YES, App: YES
+2013-12-08 15:57:38.810 TimeyWimeyApp[18432:80b] Unlimited access to network resources
+2013-12-08 15:57:38.906 TimeyWimeyApp[18432:80b] Resetting plugins due to page load.
+2013-12-08 15:57:39.471 TimeyWimeyApp[18432:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/4667C3CD-CE25-41A6-9BF4-F2CB19E89326/TimeyWimeyApp.app/www/index.html#/
+2013-12-08 16:17:18.763 TimeyWimeyApp[19437:80b] Multi-tasking -> Device: YES, App: YES
+2013-12-08 16:17:18.803 TimeyWimeyApp[19437:80b] Unlimited access to network resources
+2013-12-08 16:17:19.158 TimeyWimeyApp[19437:80b] Resetting plugins due to page load.
+2013-12-08 16:17:19.548 TimeyWimeyApp[19437:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/4667C3CD-CE25-41A6-9BF4-F2CB19E89326/TimeyWimeyApp.app/www/index.html#/
+2013-12-08 16:23:12.532 TimeyWimeyApp[20273:80b] Multi-tasking -> Device: YES, App: YES
+2013-12-08 16:23:12.753 TimeyWimeyApp[20273:80b] Unlimited access to network resources
+2013-12-08 16:23:13.557 TimeyWimeyApp[20273:80b] Resetting plugins due to page load.
+2013-12-08 16:23:13.959 TimeyWimeyApp[20273:80b] Finished load of: file:///Users/jorgeja/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/097A79E0-3790-4964-94D1-3AD83B4AB7D5/TimeyWimeyApp.app/www/index.html#/

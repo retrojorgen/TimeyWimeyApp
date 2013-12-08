@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="no.hacklivet.fbquiz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>facebookQuiz</name>
+<widget id="no.hacklivet.timeyWimey" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>TimeyWimeyApp</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Simple timer application
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="jorgeja@gmail.com" href="http://hacklivet.no">
+        Jørgen Jacobsen
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />

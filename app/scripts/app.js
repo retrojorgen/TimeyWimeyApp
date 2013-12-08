@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('fbquizApp', [
+angular.module('TimeyWimeyApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ngTouch'
 ])
   .config(function ($routeProvider) {
     $routeProvider

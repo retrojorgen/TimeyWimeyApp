@@ -2,12 +2,10 @@
 <!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="141.732px" height="141.732px" viewBox="4.634 -4.898 141.732 141.732"
-	 enable-background="new 4.634 -4.898 141.732 141.732" xml:space="preserve">
-<path fill="none" stroke="#E7509C" stroke-width="7" stroke-miterlimit="10" enable-background="new    " d="M103.393,113.294
-	c16.259-10.224,27.124-28.768,27.124-49.947c0-12.879-4.018-24.783-10.822-34.435"/>
-<path fill="none" stroke="#E7509C" stroke-width="7" stroke-miterlimit="10" enable-background="new    " d="M40.132,17.052
-	C26.766,27.719,18.15,44.488,18.15,63.347c0,17.812,7.685,33.761,19.8,44.463"/>
-<path fill="none" stroke="#E7509C" stroke-width="7" stroke-miterlimit="10" enable-background="new    " d="M83.154,95.574"/>
-<path fill="none" stroke="#E7509C" stroke-width="7" stroke-miterlimit="10" enable-background="new    " d="M94.26,33.833"/>
+	 width="141.732px" height="141.732px" viewBox="0 0 141.732 141.732" enable-background="new 0 0 141.732 141.732"
+	 xml:space="preserve">
+<path fill="none" stroke="#3953A5" stroke-width="11" stroke-miterlimit="10" d="M24.366,71.866c0-4.122,0.548-8.116,1.576-11.913
+	C30.326,43.747,43.44,31.13,59.925,27.456"/>
+<path fill="none" stroke="#3953A5" stroke-width="11" stroke-miterlimit="10" d="M115.366,71.866c0,4.596-0.682,9.032-1.949,13.215
+	c-4.525,14.937-16.525,26.624-31.646,30.711"/>
 </svg>

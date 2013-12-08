@@ -1,9 +1,10 @@
 <div class="header">
-  <h1 class="app-title">Time assistant</h1>
-  <button class="add-timer-button" ng-click="addTimer()"></button>
+  <h1 class="app-title">Timey Wimey</h1>
+  <div class="add-timer-button" ng-click="addTimer()"></div>
 </div>
 <div class="timer" ng-repeat="timer in timers">
-  <button class="button-timer" ng-click="toggleTimeCounter(timer)"></button>
-  <h2 class="time">{{timer.time.minutes}}:{{timer.time.seconds}}</h2>
+  <div class="button-timer" ng-class="{pause:timer.counting}" ng-click="toggleTimeCounter(timer)"></div>
+  <h2 class="time">{{timer.time.minutes | numberFilter}}:{{timer.time.seconds | numberFilter}}</h2>
   <h2 class="name">{{timer.name}}</h2>
+  <div class="button-delete" ng-class="" ng-click="deleteTimer(timer)"></div>
 </div>

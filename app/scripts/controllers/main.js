@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fbquizApp')
+angular.module('TimeyWimeyApp')
   .controller('MainCtrl', function ($scope, $timeout) {
     $scope.timers = [];
     $scope.timerCounter = 1;
