@@ -22,7 +22,7 @@ body {
   font-size: 1em;
   color: rgba(255,255,255,1);
   height: 100%;
-  background: url(../images/appBackground.jpg) repeat-y #2f407c;
+  background: #2f407c;
   background-size: 100%;
 }
 
@@ -35,10 +35,6 @@ span {
 @font-face {
   font-family: RobotoThin;
   src: url("fonts/Roboto-Thin.ttf");
-}
-@font-face {
-  font-family: RobotoLight;
-  src: url("fonts/Roboto-Light.ttf");
 }
 
 $dancingRegular : DancingRegular;
@@ -58,35 +54,102 @@ $yellow : #d8af00;
 
 .container {
   height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+#editor {
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 100;
+  display: none;
+  padding: 20px 10px 10px 10px;
+}
+
+.input {
+  @include box-sizing(border-box);
+  padding: 10px;
+  font-size: 26px;
+  font-family: $robotoThin;
+  width: 100%;
+  text-transform: uppercase;
+  &.editor {
+    margin-bottom: 10px;
+  }
+}
+
+.button {
+  padding: 10px;
+  border-radius: 10px;
+  @include box-sizing(border-box);
+  text-align: center;
+  font-family: $robotoThin;
+  text-transform: uppercase;
+  font-size: 32px;
+
+  &.editor {
+    background-color: #2f407c;
+    color: rgba(255,255,255,1);
+
+  }
 }
 
 .add-timer-button {
   position: absolute;
   right: 10px;
-  top: 25px;
+  top: 28px;
   background: url(../images/add-alarmclock.svg) transparent no-repeat;
-  background-size: 25px, 25px;
-  width: 25px;
-  height: 23px;
+  background-size: 36px, 36px;
+  width: 36px;
+  height: 36px;
   border: 0;
 }
 
 .header {
   position: relative;
   padding-top: 20px;
-  padding-bottom: 4px;
+  padding-bottom: 10px;
   background: #2f407c;
   background-size: 100%;
+  z-index: 14;
 
   .app-title {
     font-family: $robotoThin;
-    font-size: 16px;
+    font-size: 26px;
     padding: 2px;
     margin:0;
     display: block;
     text-align: center;
     color: rgba(255,255,255,1);
   }
+}
+
+.name {
+  color: rgba(255,255,255,0.6);
+  display: block;
+  border-left: 42px solid transparent;
+  border-right: 42px solid transparent;
+  text-align: center;
+  margin:0;
+  padding-top:4px;
+  text-transform: uppercase;
+  font-family: $robotoThin;
+  font-size: 20px;
+}
+.time {
+  color: rgba(255,255,255,0.6);
+  display: block;
+  font-family: $robotoThin;
+  border-left: 42px solid transparent;
+  border-right: 42px solid transparent;
+  text-align: center;
+  margin:0;
+  font-size: 50px;
+  line-height: 0.8;
 }
 
 .timer {
@@ -97,29 +160,6 @@ $yellow : #d8af00;
   position: relative;
   background: #253264;
 
-  .name {
-    color: rgba(255,255,255,0.6);
-    display: block;
-    border-left: 42px solid transparent;
-    border-right: 42px solid transparent;
-    text-align: center;
-    margin:0;
-    padding-top:2px;
-    text-transform: uppercase;
-    font-family: $robotoLight;
-    font-size: 10px;
-  }
-  .time {
-    color: rgba(255,255,255,0.6);
-    display: block;
-    font-family: $robotoThin;
-    border-left: 42px solid transparent;
-    border-right: 42px solid transparent;
-    text-align: center;
-    margin:0;
-    font-size: 35px;
-    line-height: 0.8;
-  }
   .button-timer {
     position: absolute;
     left: 0;
@@ -136,47 +176,39 @@ $yellow : #d8af00;
     &:before {
       content : " ";
       background: url(../images/play-button.svg) no-repeat;
-      background-size: 48px 46px;
-      height: 50px;
-      width: 48px;
+      background-size: 80px 80px;
+      height: 80px;
+      width: 80px;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -20px;
-      margin-top: -24px;
+      margin-top: 0;
     }
     &.pause {
 
       &:before {
         content : " ";
         background: url(../images/pause-button.svg) no-repeat;
-        background-size: 48px 46px;
-        height: 50px;
-        width: 48px;
+        background-size: 80px 80px;
+        height: 80px;
+        width: 80px;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -20px;
-        margin-top: -24px;
+        margin-top: 0;
       }
       &:after {
         content : " ";
         background: url(../images/rotating-circle.svg) no-repeat;
-        background-size: 49px 48px;
-        height: 48px;
-        width: 48px;
+        background-size: 81px 80px;
+        height: 80px;
+        width: 80px;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -21px;
-        margin-top: -26px;
+        margin-top: -2px;
+        margin-left: -2px;
         @include animation(playing 1.5s infinite linear);
       }
     }
   }
   .button-delete {
     position: absolute;
-    right: 2px;
+    right: 20px;
     top: 0;
     height: 100%;
     width: 40px;
@@ -187,14 +219,11 @@ $yellow : #d8af00;
     &:before {
       content : " ";
       background: url(../images/delete-button.svg) no-repeat;
-      background-size: 38px 36px;
-      height: 36px;
-      width: 38px;
+      background-size: 60px 60px;
+      height: 60px;
+      width: 60px;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -20px;
-      margin-top: -18px;
+      margin-top: 5px;
     }
   }
 

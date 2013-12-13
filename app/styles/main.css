@@ -27,7 +27,7 @@ body {
   font-size: 1em;
   color: white;
   height: 100%;
-  background: url(../images/appBackground.jpg) repeat-y #2f407c;
+  background: #2f407c;
   background-size: 100%;
 }
 
@@ -45,40 +45,85 @@ span {
   src: url("fonts/Roboto-Thin.ttf");
 }
 
-@font-face {
-  font-family: RobotoLight;
-  src: url("fonts/Roboto-Light.ttf");
-}
-
-/* line 59, main.scss */
+/* line 55, main.scss */
 .container {
   height: 100%;
+  position: relative;
+  z-index: 10;
 }
 
-/* line 63, main.scss */
+/* line 61, main.scss */
+#editor {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 100;
+  display: none;
+  padding: 20px 10px 10px 10px;
+}
+
+/* line 73, main.scss */
+.input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 26px;
+  font-family: RobotoThin;
+  width: 100%;
+  text-transform: uppercase;
+}
+/* line 80, main.scss */
+.input.editor {
+  margin-bottom: 10px;
+}
+
+/* line 85, main.scss */
+.button {
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: RobotoThin;
+  text-transform: uppercase;
+  font-size: 32px;
+}
+/* line 94, main.scss */
+.button.editor {
+  background-color: #2f407c;
+  color: white;
+}
+
+/* line 101, main.scss */
 .add-timer-button {
   position: absolute;
   right: 10px;
-  top: 25px;
+  top: 28px;
   background: url(../images/add-alarmclock.svg) transparent no-repeat;
-  background-size: 25px, 25px;
-  width: 25px;
-  height: 23px;
+  background-size: 36px, 36px;
+  width: 36px;
+  height: 36px;
   border: 0;
 }
 
-/* line 74, main.scss */
+/* line 112, main.scss */
 .header {
   position: relative;
   padding-top: 20px;
-  padding-bottom: 4px;
+  padding-bottom: 10px;
   background: #2f407c;
   background-size: 100%;
+  z-index: 14;
 }
-/* line 81, main.scss */
+/* line 120, main.scss */
 .header .app-title {
   font-family: RobotoThin;
-  font-size: 16px;
+  font-size: 26px;
   padding: 2px;
   margin: 0;
   display: block;
@@ -86,7 +131,34 @@ span {
   color: white;
 }
 
-/* line 92, main.scss */
+/* line 131, main.scss */
+.name {
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  border-left: 42px solid transparent;
+  border-right: 42px solid transparent;
+  text-align: center;
+  margin: 0;
+  padding-top: 4px;
+  text-transform: uppercase;
+  font-family: RobotoThin;
+  font-size: 20px;
+}
+
+/* line 143, main.scss */
+.time {
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  font-family: RobotoThin;
+  border-left: 42px solid transparent;
+  border-right: 42px solid transparent;
+  text-align: center;
+  margin: 0;
+  font-size: 50px;
+  line-height: 0.8;
+}
+
+/* line 155, main.scss */
 .timer {
   padding: 4px;
   display: block;
@@ -95,32 +167,7 @@ span {
   position: relative;
   background: #253264;
 }
-/* line 100, main.scss */
-.timer .name {
-  color: rgba(255, 255, 255, 0.6);
-  display: block;
-  border-left: 42px solid transparent;
-  border-right: 42px solid transparent;
-  text-align: center;
-  margin: 0;
-  padding-top: 2px;
-  text-transform: uppercase;
-  font-family: RobotoLight;
-  font-size: 10px;
-}
-/* line 112, main.scss */
-.timer .time {
-  color: rgba(255, 255, 255, 0.6);
-  display: block;
-  font-family: RobotoThin;
-  border-left: 42px solid transparent;
-  border-right: 42px solid transparent;
-  text-align: center;
-  margin: 0;
-  font-size: 35px;
-  line-height: 0.8;
-}
-/* line 123, main.scss */
+/* line 163, main.scss */
 .timer .button-timer {
   position: absolute;
   left: 0;
@@ -134,54 +181,46 @@ span {
   background-color: transparent;
   margin-left: 2px;
 }
-/* line 136, main.scss */
+/* line 176, main.scss */
 .timer .button-timer:before {
   content: " ";
   background: url(../images/play-button.svg) no-repeat;
-  background-size: 48px 46px;
-  height: 50px;
-  width: 48px;
+  background-size: 80px 80px;
+  height: 80px;
+  width: 80px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -20px;
-  margin-top: -24px;
+  margin-top: 0;
 }
-/* line 150, main.scss */
+/* line 187, main.scss */
 .timer .button-timer.pause:before {
   content: " ";
   background: url(../images/pause-button.svg) no-repeat;
-  background-size: 48px 46px;
-  height: 50px;
-  width: 48px;
+  background-size: 80px 80px;
+  height: 80px;
+  width: 80px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -20px;
-  margin-top: -24px;
+  margin-top: 0;
 }
-/* line 162, main.scss */
+/* line 196, main.scss */
 .timer .button-timer.pause:after {
   content: " ";
   background: url(../images/rotating-circle.svg) no-repeat;
-  background-size: 49px 48px;
-  height: 48px;
-  width: 48px;
+  background-size: 81px 80px;
+  height: 80px;
+  width: 80px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -21px;
-  margin-top: -26px;
+  margin-top: -2px;
+  margin-left: -2px;
   -webkit-animation: playing 1.5s infinite linear;
   -moz-animation: playing 1.5s infinite linear;
   -ms-animation: playing 1.5s infinite linear;
   -o-animation: playing 1.5s infinite linear;
   animation: playing 1.5s infinite linear;
 }
-/* line 177, main.scss */
+/* line 209, main.scss */
 .timer .button-delete {
   position: absolute;
-  right: 2px;
+  right: 20px;
   top: 0;
   height: 100%;
   width: 40px;
@@ -190,16 +229,13 @@ span {
   padding: 0;
   background-color: transparent;
 }
-/* line 187, main.scss */
+/* line 219, main.scss */
 .timer .button-delete:before {
   content: " ";
   background: url(../images/delete-button.svg) no-repeat;
-  background-size: 38px 36px;
-  height: 36px;
-  width: 38px;
+  background-size: 60px 60px;
+  height: 60px;
+  width: 60px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -20px;
-  margin-top: -18px;
+  margin-top: 5px;
 }
