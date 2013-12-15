@@ -3,12 +3,16 @@
 angular.module('TimeyWimeyApp')
   .controller('MainCtrl', function ($scope, $timeout) {
     $scope.timers = [];
-    $scope.timerCounter = 1;
+    $scope.totalTimer = {
+      'minutes': 0,
+      'seconds': 0
+    };
     $scope.editObject = {};
+
 
     $scope.addTimer = function () {
       var newTimer = {
-        name: 'Timer ' + $scope.timerCounter,
+        name: '',
         seconds: 0,
         pastSeconds: 0,
         time: {
@@ -18,17 +22,18 @@ angular.module('TimeyWimeyApp')
         counting: false
       };
       $scope.timers.push(newTimer);
-      $scope.timerCounter++;
       $scope.setEditObject(newTimer);
     };
 
     $scope.setEditObject = function(timerObject) {
       $scope.editObject = timerObject;
-      jQuery('#editor').show().focus();
+      jQuery('#editor').show();
+      jQuery('.input').focus();
     };
 
     $scope.closeEditor = function () {
-      jQuery('#editor').hide().blur();
+      jQuery('#editor').hide();
+      jQuery('.input').blur();
     };
 
     $scope.deleteTimer = function (timerObject) {
@@ -36,11 +41,21 @@ angular.module('TimeyWimeyApp')
       $scope.timers.splice(timerPosition,1);
     };
 
-    $scope.setTime = function (timerObject) {
-      var minutes = Math.floor(timerObject.seconds / 60);
-      var seconds = timerObject.seconds - minutes * 60;
-      timerObject.time.minutes = minutes;
-      timerObject.time.seconds = seconds;
+    $scope.setTime = function (timerSeconds) {
+      var minutes = Math.floor(timerSeconds / 60);
+      var seconds = timerSeconds - minutes * 60;
+      return {
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    };
+
+    $scope.getAllSeconds = function (timerArray) {
+      var totalSeconds = 0;
+      timerArray.forEach(function(entry) {
+        totalSeconds = totalSeconds + entry.seconds;
+      });
+      return totalSeconds;
     };
 
     $scope.timeCounterTimeoutInterval = function (timerObject) {
@@ -54,7 +69,8 @@ angular.module('TimeyWimeyApp')
           }
 
           timerObject.seconds = diffCurrentNew;
-          $scope.setTime(timerObject);
+          timerObject.time = $scope.setTime(timerObject.seconds);
+          $scope.totalTimer = $scope.setTime($scope.getAllSeconds($scope.timers));
           $scope.timeCounterTimeoutInterval(timerObject);
         },
       1000);
@@ -75,5 +91,13 @@ angular.module('TimeyWimeyApp')
       $timeout.cancel(timerObject.timeoutInterval);
       timerObject.pastSeconds = timerObject.seconds;
       timerObject.counting = false;
+    };
+
+    $scope.clearData = function () {
+      $scope.timers = [];
+      $scope.totalTimer = {
+        'minutes': 0,
+        'seconds': 0
+      };
     };
   });
