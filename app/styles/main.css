@@ -125,9 +125,10 @@ span {
 
 /* line 115, main.scss */
 .app-title {
-  font-size: 26px;
   font-family: "Exo 2";
   text-transform: uppercase;
+  font-size: 28px;
+  font-weight: normal;
   width: 100%;
   display: block;
   position: absolute;
@@ -137,7 +138,7 @@ span {
   color: white;
 }
 
-/* line 128, main.scss */
+/* line 129, main.scss */
 .header {
   position: relative;
   height: 100px;
@@ -149,13 +150,14 @@ span {
   filter: blur(5px);
 }
 
-/* line 137, main.scss */
+/* line 138, main.scss */
 .name {
   color: white;
   display: block;
   text-align: center;
   margin: 0 30px 0 60px;
   padding-top: 4px;
+  font-weight: normal;
   text-transform: uppercase;
   font-family: "Exo 2";
   font-size: 20px;
@@ -167,13 +169,14 @@ span {
   box-sizing: border-box;
 }
 
-/* line 149, main.scss */
+/* line 151, main.scss */
 .time {
   color: white;
   display: block;
   font-size: 50px;
   font-family: "Exo 2";
   text-transform: uppercase;
+  font-weight: normal;
   text-align: center;
   margin: 0 30px 0 60px;
   -webkit-box-shadow: white, 0 0 1px;
@@ -184,7 +187,7 @@ span {
   box-sizing: border-box;
 }
 
-/* line 161, main.scss */
+/* line 164, main.scss */
 .timer {
   padding: 12px;
   display: block;
@@ -192,7 +195,7 @@ span {
   width: 100%;
   position: relative;
 }
-/* line 168, main.scss */
+/* line 171, main.scss */
 .timer .button-timer {
   position: absolute;
   left: 10px;
@@ -204,7 +207,7 @@ span {
   height: 50px;
   background-color: transparent;
 }
-/* line 180, main.scss */
+/* line 183, main.scss */
 .timer .button-timer:before {
   content: " ";
   background: url(../images/play-button.svg) no-repeat;
@@ -213,7 +216,7 @@ span {
   width: 100%;
   position: absolute;
 }
-/* line 190, main.scss */
+/* line 193, main.scss */
 .timer .button-timer.pause:before {
   content: " ";
   background: url(../images/pause-button.svg) no-repeat;
@@ -223,7 +226,7 @@ span {
   width: 100%;
   position: absolute;
 }
-/* line 199, main.scss */
+/* line 202, main.scss */
 .timer .button-timer.pause:after {
   content: " ";
   background: url(../images/rotating-circle.svg) no-repeat;
@@ -238,7 +241,7 @@ span {
   -o-animation: playing 1.5s infinite linear;
   animation: playing 1.5s infinite linear;
 }
-/* line 211, main.scss */
+/* line 214, main.scss */
 .timer .button-delete {
   position: absolute;
   right: 20px;
@@ -251,7 +254,7 @@ span {
   padding: 0;
   background-color: transparent;
 }
-/* line 222, main.scss */
+/* line 225, main.scss */
 .timer .button-delete:before {
   content: " ";
   background: url(../images/delete-button.svg) no-repeat;
@@ -261,7 +264,7 @@ span {
   position: absolute;
 }
 
-/* line 232, main.scss */
+/* line 235, main.scss */
 .footer-container {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -269,7 +272,7 @@ span {
   box-sizing: border-box;
   padding: 10px;
 }
-/* line 237, main.scss */
+/* line 240, main.scss */
 .footer-container .reset-button {
   position: absolute;
   border-radius: 10px;
@@ -284,11 +287,11 @@ span {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 249, main.scss */
+/* line 252, main.scss */
 .footer-container .total-time {
   position: absolute;
   right: 10px;
   padding: 10px;
-  display: inline-block;
+  width: 60%;
   text-align: right;
 }

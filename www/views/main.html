@@ -4,10 +4,10 @@
 </div>
 <div class="divider"></div>
 <div class="timer" ng-repeat="timer in timers">
-  <div class="button-timer" ng-class="{pause:timer.counting}" ng-click="toggleTimeCounter(timer)"></div>
-  <h2 class="time" ng-click="setEditObject(timer)">
-  {{timer.time.minutes | numberFilter}}:{{timer.time.seconds | numberFilter}}</h2>
-  <h2 class="name" ng-click="setEditObject(timer)">{{timer.name}}</h2>
+  <div class="button-timer" ng-class="{pause:timer.doc.counting}" ng-click="toggleTimeCounter(timer)"></div>
+  <h2 class="time" ng-click="setEditObject(timer.doc)">
+  {{timer.doc.time.minutes | numberFilter}}:{{timer.doc.time.seconds | numberFilter}}</h2>
+  <h2 class="name" ng-click="setEditObject(timer.doc)">{{timer.doc.name}}</h2>
   <div class="button-delete" ng-class="" ng-click="deleteTimer(timer)"></div>
 </div>
 <div class="footer-container">

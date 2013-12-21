@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('TimeyWimeyApp')
-  .controller('MainCtrl', function ($scope, $timeout) {
+  .controller('MainCtrl', function ($rootScope, $scope, $timeout) {
+    $scope.db = new PouchDB('TimeyWimeyDB');
     $scope.timers = [];
     $scope.totalTimer = {
       'minutes': 0,
@@ -11,7 +12,8 @@ angular.module('TimeyWimeyApp')
 
 
     $scope.addTimer = function () {
-      var newTimer = {
+      var newTimer = {};
+      newTimer.doc = {
         name: '',
         seconds: 0,
         pastSeconds: 0,
@@ -21,12 +23,20 @@ angular.module('TimeyWimeyApp')
         },
         counting: false
       };
-      $scope.timers.push(newTimer);
-      $scope.setEditObject(newTimer);
+      $scope.db.post(newTimer.doc, function(err,response) {
+        if(response) {
+          $rootScope.$apply(function() {
+            newTimer.doc._id = response.id;
+            newTimer.doc._rev = response.rev;
+            $scope.timers.push(newTimer);
+            $scope.setEditObject(newTimer.doc);
+          });
+        }
+      });
     };
 
-    $scope.setEditObject = function(timerObject) {
-      $scope.editObject = timerObject;
+    $scope.setEditObject = function(doc) {
+      $scope.editObject = doc;
       jQuery('#editor').show();
       jQuery('.input').focus();
     };
@@ -34,11 +44,28 @@ angular.module('TimeyWimeyApp')
     $scope.closeEditor = function () {
       jQuery('#editor').hide();
       jQuery('.input').blur();
+      console.log($scope.editObject);
+      $scope.db.put($scope.editObject, function (err, response) {
+        $rootScope.$apply(function() {
+          $scope.editObject._id = response.id;
+          $scope.editObject._rev = response.rev;
+        });
+      });
     };
 
     $scope.deleteTimer = function (timerObject) {
-      var timerPosition = $scope.timers.indexOf(timerObject);
-      $scope.timers.splice(timerPosition,1);
+
+      $scope.db.remove(timerObject.doc, function(err, response) {
+        if(response) {
+          $rootScope.$apply(function() {
+              var timerPosition = $scope.timers.indexOf(timerObject);
+              $scope.timers.splice(timerPosition,1);
+              console.log($scope.timers);
+            });
+        }
+      });
+
+
     };
 
     $scope.setTime = function (timerSeconds) {
@@ -52,8 +79,8 @@ angular.module('TimeyWimeyApp')
 
     $scope.getAllSeconds = function (timerArray) {
       var totalSeconds = 0;
-      timerArray.forEach(function(entry) {
-        totalSeconds = totalSeconds + entry.seconds;
+      timerArray.forEach(function(timerObject) {
+        totalSeconds = totalSeconds + timerObject.doc.seconds;
       });
       return totalSeconds;
     };
@@ -62,24 +89,32 @@ angular.module('TimeyWimeyApp')
       timerObject.timeoutInterval = $timeout(
         function() {
           var newDate = new Date();
-          var diffCurrentNew = Math.round(((newDate - timerObject.currentDate)/1000));
+          var diffCurrentNew = Math.round(((newDate - timerObject.doc.currentDate)/1000));
           
-          if(timerObject.pastSeconds) {
-            diffCurrentNew = diffCurrentNew + timerObject.pastSeconds;
+          if(timerObject.doc.pastSeconds) {
+            diffCurrentNew = diffCurrentNew + timerObject.doc.pastSeconds;
           }
 
-          timerObject.seconds = diffCurrentNew;
-          timerObject.time = $scope.setTime(timerObject.seconds);
+          timerObject.doc.seconds = diffCurrentNew;
+          timerObject.doc.time = $scope.setTime(timerObject.doc.seconds);
           $scope.totalTimer = $scope.setTime($scope.getAllSeconds($scope.timers));
+
+          $scope.db.put(timerObject.doc, function (err, response) {
+            $rootScope.$apply(function() {
+              timerObject.doc._id = response.id;
+              timerObject.doc._rev = response.rev;
+            });
+          });
+
           $scope.timeCounterTimeoutInterval(timerObject);
         },
       1000);
     };
 
     $scope.toggleTimeCounter = function (timerObject) {
-      if(!timerObject.counting) {
-        timerObject.counting = true;
-        timerObject.currentDate = new Date();
+      if(!timerObject.doc.counting) {
+        timerObject.doc.counting = true;
+        timerObject.doc.currentDate = new Date();
         $scope.timeCounterTimeoutInterval(timerObject);
       }
       else {
@@ -89,8 +124,15 @@ angular.module('TimeyWimeyApp')
 
     $scope.stopTimeCounter = function (timerObject) {
       $timeout.cancel(timerObject.timeoutInterval);
-      timerObject.pastSeconds = timerObject.seconds;
-      timerObject.counting = false;
+      timerObject.doc.pastSeconds = timerObject.doc.seconds;
+      timerObject.doc.counting = false;
+
+      $scope.db.put(timerObject.doc, function (err, response) {
+        $rootScope.$apply(function() {
+          timerObject.doc._id = response.id;
+          timerObject.doc._rev = response.rev;
+        });
+      });
     };
 
     $scope.clearData = function () {
@@ -100,4 +142,19 @@ angular.module('TimeyWimeyApp')
         'seconds': 0
       };
     };
+
+    $scope.getAllTimers = function () {
+      $scope.db.allDocs({include_docs: true, descending: true},
+      function(err, doc) {
+
+        $rootScope.$apply(function() {
+          doc.rows.forEach(function(timerObject) {
+            timerObject.doc.counting = false;
+            $scope.timers.push(timerObject);
+          });
+        });
+      });
+    };
+
+    $scope.getAllTimers();
   });
