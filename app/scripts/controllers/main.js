@@ -90,7 +90,7 @@ angular.module('TimeyWimeyApp')
         function() {
           var newDate = new Date();
           var diffCurrentNew = Math.round(((newDate - timerObject.doc.currentDate)/1000));
-          
+
           if(timerObject.doc.pastSeconds) {
             diffCurrentNew = diffCurrentNew + timerObject.doc.pastSeconds;
           }
@@ -141,6 +141,10 @@ angular.module('TimeyWimeyApp')
         'minutes': 0,
         'seconds': 0
       };
+      $scope.db.destroy('TimeyWimeyDB', function() {
+        console.log('slettaalt');
+        $scope.db = new PouchDB('TimeyWimeyDB');
+      });
     };
 
     $scope.getAllTimers = function () {
