@@ -6,24 +6,25 @@ angular.module('timer', [])
       scope: {
         interval: '=interval',
         startTimeAttr: '=startTime',
+        endTimeAttr: '=endTime',
         countdownattr: '=countdown',
         autoStart: '&autoStart'
       },
-      controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-        var elHtml;
+      controller: ['$scope', '$element', '$attrs', '$timeout', function ($scope, $element, $attrs, $timeout) {
 
         //angular 1.2 doesn't support attributes ending in "-start", so we're
         //supporting both "autostart" and "auto-start" as a solution for
         //backward and forward compatibility.
         $scope.autoStart = $attrs.autoStart || $attrs.autostart;
 
-        elHtml = $element.html();
-        if (elHtml.trim().length === 0) {
-          elHtml = '{{millis}}';
+        if ($element.html().trim().length === 0) {
+          $element.append($compile('<span>{{millis}}</span>')($scope));
+        } else {
+          $element.append($compile($element.contents())($scope));
         }
-        $element.replaceWith($compile('<span>' + elHtml + '</span>')($scope));
 
         $scope.startTime = null;
+        $scope.endTime = null;
         $scope.timeoutId = null;
         $scope.countdown = $scope.countdownattr && parseInt($scope.countdownattr, 10) >= 0 ? parseInt($scope.countdownattr, 10) : undefined;
         $scope.isRunning = false;
@@ -48,6 +49,7 @@ angular.module('timer', [])
 
         $scope.start = $element[0].start = function () {
           $scope.startTime = $scope.startTimeAttr ? new Date($scope.startTimeAttr) : new Date();
+          $scope.endTime = $scope.endTimeAttr ? new Date($scope.endTimeAttr) : null;
           $scope.countdown = $scope.countdownattr && parseInt($scope.countdownattr, 10) > 0 ? parseInt($scope.countdownattr, 10) : undefined;
           resetTimeout();
           tick();
@@ -80,9 +82,20 @@ angular.module('timer', [])
           $scope.days = Math.floor((($scope.millis / (3600000)) / 24));
         }
 
-        //determine initial values of time units
+        //determine initial values of time units and add AddSeconds functionality
         if ($scope.countdownattr) {
           $scope.millis = $scope.countdownattr * 1000;
+
+          $scope.addCDSeconds = $element[0].addCDSeconds = function(extraSeconds){
+            $scope.countdown += extraSeconds;
+            $scope.$digest();
+          };
+
+          $scope.$on('timer-add-cd-seconds', function (e, extraSeconds) {
+            $timeout(function (){
+              $scope.addCDSeconds(extraSeconds);
+            });
+          });
         } else {
           $scope.millis = 0;
         }
@@ -93,10 +106,22 @@ angular.module('timer', [])
           $scope.millis = new Date() - $scope.startTime;
           var adjustment = $scope.millis % 1000;
 
+          if ($scope.endTimeAttr) {
+            $scope.millis = $scope.endTime - new Date();
+            adjustment = $scope.interval - $scope.millis % 1000;
+          }
+
+
           if ($scope.countdownattr) {
             $scope.millis = $scope.countdown * 1000;
           }
 
+          if ($scope.millis < 0) {
+            $scope.stop();
+            $scope.millis = 0;
+            calculateTimeUnits();
+            return;
+          }
           calculateTimeUnits();
           if ($scope.countdown > 0) {
             $scope.countdown--;

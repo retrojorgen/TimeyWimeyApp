@@ -6,6 +6,11 @@ function stopTimer(sectionId) {
   document.getElementById(sectionId).getElementsByTagName('timer')[0].stop();
 }
 
+
+function addCDSeconds(sectionId, extraTime) {
+  document.getElementById(sectionId).getElementsByTagName('timer')[0].addCDSeconds(extraTime);
+}
+
 function stopResumeTimer(sectionId, btn) {
   if (btn.innerHTML === 'Start') {
     document.getElementById(sectionId).getElementsByTagName('timer')[0].start();

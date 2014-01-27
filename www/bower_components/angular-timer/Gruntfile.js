@@ -6,11 +6,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-conventional-changelog');
-  grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-ngmin');
-  grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   var userConfig = {
@@ -72,7 +68,6 @@ module.exports = function (grunt) {
         boss: true,
         eqnull: true
       },
-      globals: {}
     },
 
     connect: {
@@ -84,6 +79,25 @@ module.exports = function (grunt) {
           livereload:true,
           open: true
         }
+      },
+      testserver: {
+        options: {
+          port: 3030,
+          base: '.'
+        }
+      }
+    },
+
+    karma: {
+      unit: {
+        configFile: 'config/karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
+      },
+      e2e: {
+        configFile: 'config/karma-e2e.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
       }
     },
 
@@ -100,7 +114,9 @@ module.exports = function (grunt) {
 
   grunt.initConfig(grunt.util._.extend(taskConfig, userConfig));
 
-  grunt.registerTask('default', [ 'connect', 'watch']);
+  grunt.registerTask('default', [ 'connect:server', 'watch']);
+
+  grunt.registerTask('tests', [ 'connect:testserver', 'build', 'karma:unit', 'karma:e2e']);
 
   grunt.registerTask('build', [
     'jshint', 'concat', 'uglify'
