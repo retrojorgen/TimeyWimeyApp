@@ -141,7 +141,8 @@ angular.module('TimeyWimeyApp')
         'minutes': 0,
         'seconds': 0
       };
-      $scope.db.destroy('TimeyWimeyDB', function() {
+      console.log($scope.db);
+      PouchDB.destroy('TimeyWimeyDB', function() {
         console.log('slettaalt');
         $scope.db = new PouchDB('TimeyWimeyDB');
       });
