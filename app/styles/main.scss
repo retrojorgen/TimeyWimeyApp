@@ -20,6 +20,22 @@ $red : #d00004;
 $orange : #c85800;
 $yellow : #d8af00;
 
+// For making a keyframe animation
+@mixin keying($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 @keyframes playing {
   from {
     @include rotate(0deg);
@@ -28,6 +44,21 @@ $yellow : #d8af00;
     @include rotate(360deg);
   }
 }
+
+@include keying(twinkle) {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 
 /* Space out content a bit */
 html,
@@ -72,7 +103,7 @@ span {
   font-family: $bodyFont;
   text-transform: uppercase;
   width: 100%;
-  
+
   &.editor {
     margin-bottom: 10px;
   }
@@ -258,5 +289,42 @@ span {
   }
 }
 
+.twinkle {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background: {
+    color: #b193ff;
+    size: 100%;
+  }
+  @include filter(blur(1px));
+  border-radius: 50%;
+  @include animation(twinkle 3s infinite linear);
+  &:after {
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 160%;
+    left: 50%;
+    margin-left: -5%;
+    top: -30%;
+    background: {
+      color: #b193ff;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    width: 160%;
+    height: 10%;
+    left: -30%;
+    margin-left: -5%;
+    top: 50%;
+    margin-top: -5%;
+    background: {
+      color: #b193ff;
+    }
+  }
+}
 
 

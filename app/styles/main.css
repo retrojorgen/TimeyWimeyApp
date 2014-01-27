@@ -4,7 +4,7 @@
 }
 
 @keyframes playing {
-  /* line 24, main.scss */
+  /* line 40, main.scss */
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -13,7 +13,7 @@
     transform: rotate(0deg);
   }
 
-  /* line 27, main.scss */
+  /* line 43, main.scss */
   to {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -23,8 +23,76 @@
   }
 }
 
+@-webkit-keyframes twinkle {
+  /* line 49, main.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 53, main.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 57, main.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes twinkle {
+  /* line 49, main.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 53, main.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 57, main.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes twinkle {
+  /* line 49, main.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 53, main.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 57, main.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  /* line 49, main.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 53, main.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 57, main.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Space out content a bit */
-/* line 34, main.scss */
+/* line 65, main.scss */
 html,
 body {
   margin: 0;
@@ -36,7 +104,7 @@ body {
   background-image: url(../images/appBackground.jpg);
 }
 
-/* line 46, main.scss */
+/* line 77, main.scss */
 div,
 button,
 span {
@@ -45,14 +113,14 @@ span {
   box-sizing: border-box;
 }
 
-/* line 50, main.scss */
+/* line 81, main.scss */
 .container {
   height: 100%;
   position: relative;
   z-index: 10;
 }
 
-/* line 56, main.scss */
+/* line 87, main.scss */
 #editor {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -65,7 +133,7 @@ span {
   padding: 20px 10px 10px 10px;
 }
 
-/* line 68, main.scss */
+/* line 99, main.scss */
 .input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -76,12 +144,12 @@ span {
   text-transform: uppercase;
   width: 100%;
 }
-/* line 76, main.scss */
+/* line 107, main.scss */
 .input.editor {
   margin-bottom: 10px;
 }
 
-/* line 81, main.scss */
+/* line 112, main.scss */
 .button {
   padding: 10px;
   border-radius: 10px;
@@ -93,14 +161,14 @@ span {
   text-transform: uppercase;
   font-size: 32px;
 }
-/* line 90, main.scss */
+/* line 121, main.scss */
 .button.editor {
   background-size: 100%;
   background-image: url(../images/appBackground.jpg);
   color: white;
 }
 
-/* line 97, main.scss */
+/* line 128, main.scss */
 .add-timer-button {
   position: absolute;
   right: 10px;
@@ -113,7 +181,7 @@ span {
   z-index: 18;
 }
 
-/* line 108, main.scss */
+/* line 139, main.scss */
 .divider {
   height: 1px;
   background-color: white;
@@ -123,7 +191,7 @@ span {
   box-sizing: border-box;
 }
 
-/* line 115, main.scss */
+/* line 146, main.scss */
 .app-title {
   font-family: "Exo 2";
   text-transform: uppercase;
@@ -138,7 +206,7 @@ span {
   color: white;
 }
 
-/* line 129, main.scss */
+/* line 160, main.scss */
 .header {
   position: relative;
   height: 100px;
@@ -150,7 +218,7 @@ span {
   filter: blur(5px);
 }
 
-/* line 138, main.scss */
+/* line 169, main.scss */
 .name {
   color: white;
   display: block;
@@ -169,7 +237,7 @@ span {
   box-sizing: border-box;
 }
 
-/* line 151, main.scss */
+/* line 182, main.scss */
 .time {
   color: white;
   display: block;
@@ -187,7 +255,7 @@ span {
   box-sizing: border-box;
 }
 
-/* line 164, main.scss */
+/* line 195, main.scss */
 .timer {
   padding: 12px;
   display: block;
@@ -195,7 +263,7 @@ span {
   width: 100%;
   position: relative;
 }
-/* line 171, main.scss */
+/* line 202, main.scss */
 .timer .button-timer {
   position: absolute;
   left: 10px;
@@ -207,7 +275,7 @@ span {
   height: 50px;
   background-color: transparent;
 }
-/* line 183, main.scss */
+/* line 214, main.scss */
 .timer .button-timer:before {
   content: " ";
   background: url(../images/play-button.svg) no-repeat;
@@ -216,7 +284,7 @@ span {
   width: 100%;
   position: absolute;
 }
-/* line 193, main.scss */
+/* line 224, main.scss */
 .timer .button-timer.pause:before {
   content: " ";
   background: url(../images/pause-button.svg) no-repeat;
@@ -226,7 +294,7 @@ span {
   width: 100%;
   position: absolute;
 }
-/* line 202, main.scss */
+/* line 233, main.scss */
 .timer .button-timer.pause:after {
   content: " ";
   background: url(../images/rotating-circle.svg) no-repeat;
@@ -241,7 +309,7 @@ span {
   -o-animation: playing 1.5s infinite linear;
   animation: playing 1.5s infinite linear;
 }
-/* line 214, main.scss */
+/* line 245, main.scss */
 .timer .button-delete {
   position: absolute;
   right: 20px;
@@ -254,7 +322,7 @@ span {
   padding: 0;
   background-color: transparent;
 }
-/* line 225, main.scss */
+/* line 256, main.scss */
 .timer .button-delete:before {
   content: " ";
   background: url(../images/delete-button.svg) no-repeat;
@@ -264,7 +332,7 @@ span {
   position: absolute;
 }
 
-/* line 235, main.scss */
+/* line 266, main.scss */
 .footer-container {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -272,7 +340,7 @@ span {
   box-sizing: border-box;
   padding: 10px;
 }
-/* line 240, main.scss */
+/* line 271, main.scss */
 .footer-container .reset-button {
   position: absolute;
   border-radius: 10px;
@@ -287,11 +355,52 @@ span {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 252, main.scss */
+/* line 283, main.scss */
 .footer-container .total-time {
   position: absolute;
   right: 10px;
   padding: 10px;
   width: 60%;
   text-align: right;
+}
+
+/* line 292, main.scss */
+.twinkle {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background-color: #b193ff;
+  background-size: 100%;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  filter: blur(1px);
+  border-radius: 50%;
+  -webkit-animation: twinkle 3s infinite linear;
+  -moz-animation: twinkle 3s infinite linear;
+  -ms-animation: twinkle 3s infinite linear;
+  -o-animation: twinkle 3s infinite linear;
+  animation: twinkle 3s infinite linear;
+}
+/* line 303, main.scss */
+.twinkle:after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 160%;
+  left: 50%;
+  margin-left: -5%;
+  top: -30%;
+  background-color: #b193ff;
+}
+/* line 315, main.scss */
+.twinkle:before {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 10%;
+  left: -30%;
+  margin-left: -5%;
+  top: 50%;
+  margin-top: -5%;
+  background-color: #b193ff;
 }
