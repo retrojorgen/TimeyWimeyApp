@@ -10,5 +10,5 @@ TimeyWimey is a multi stop watch app. You can run multiple stop watch synchronou
 
 Technology stack
 ----------------
-Timey Wimey is built with phonegap + angular + grunt + sass.
+Timey Wimey is built with phonegap + angular + grunt + sass + pouchdb for offline storage.
 It is using a Yeoman generator for phonegap and angular.
